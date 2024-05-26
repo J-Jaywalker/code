@@ -2,5 +2,3 @@ libs/portaudio
 /out/*.exe
 out/VowelAnalyser.exe
 out/libportaudio.dll
-
-out/VowelAnalyser.exe
