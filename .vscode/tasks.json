@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "clean",
+            "label": "Clean",
             "type": "shell",
             "command": "cmd",
             "args": [
@@ -13,10 +13,12 @@
                 "out"
             ],
             "group": "build",
-            "problemMatcher": []
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
-            "label": "createOutFolder",
+            "label": "CreateOutFolder",
             "type": "shell",
             "command": "cmd",
             "args": [
@@ -25,10 +27,12 @@
                 "out"
             ],
             "group": "build",
-            "problemMatcher": []
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
-            "label": "copyDlls",
+            "label": "CopyDlls",
             "type": "shell",
             "command": "cmd",
             "args": [
@@ -38,15 +42,12 @@
                 "${workspaceFolder}\\out\\libportaudio.dll"
             ],
             "group": "build",
-            "problemMatcher": []
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
-            "label": "Clean Build",
-            "dependsOn": [
-                "clean",
-                "createOutFolder",
-                "copyDlls"
-            ],
+            "label": "Build",
             "type": "shell",
             "command": "g++",
             "args": [
@@ -59,6 +60,20 @@
                 "-L${workspaceFolder}/Libs/portaudio/build",
                 "-lportaudio"
             ],
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Clean & Build",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Clean",
+                "CreateOutFolder",
+                "CopyDlls",
+                "Build"
+            ],            
             "group": "build",
             "problemMatcher": [
                 "$gcc"
