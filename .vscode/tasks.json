@@ -55,6 +55,7 @@
                 "-g",
                 "-o",
                 "${workspaceFolder}/out/VowelAnalyser.exe",
+                "${workspaceFolder}/main.cpp",
                 "${workspaceFolder}/VowelAnalyser.cpp",
                 "-I${workspaceFolder}/Libs/portaudio/include",
                 "-L${workspaceFolder}/Libs/portaudio/build",
